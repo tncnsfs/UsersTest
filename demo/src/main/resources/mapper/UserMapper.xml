@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.UserMapper">
+
+    <!-- SELECT -->
+    <select id="findAllUser"  resultType="com.example.model.User">
+        SELECT * FROM USERS 
+    </select>
+
+    <!-- SELECT -->
+    <select id="findById" parameterType="long" resultType="com.example.model.User">
+        SELECT * FROM USERS WHERE ID = #{id}
+    </select>
+
+    <!-- INSERT -->
+    <insert id="insertUser" parameterType="com.example.model.User">
+        INSERT INTO users (id, age, content)
+        VALUES (#{id}, #{age}, #{content})
+    </insert>
+
+    <!-- UPDATE -->
+    <update id="updateUser" parameterType="com.example.model.User">
+        UPDATE users SET age = #{age}, content = #{content}
+        WHERE id = #{id}
+    </update>
+
+    <!-- DELETE -->
+    <delete id="deleteUser" parameterType="long">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
+
+</mapper>
